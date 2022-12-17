@@ -693,20 +693,25 @@ ${symbol2} ${prefix}mediafire [url] Ⓟ
 
 *ASUPAN MENU*
 ${symbol2} ${prefix}randomasupan Ⓟ
-${symbol2} ${prefix}santuy Ⓕ Ⓛ
-${symbol2} ${prefix}bocil Ⓕ Ⓛ
-${symbol2} ${prefix}hijaber Ⓕ Ⓛ
-${symbol2} ${prefix}ukhty Ⓕ Ⓛ
+${symbol2} ${prefix}asupansantuy Ⓕ Ⓛ
+${symbol2} ${prefix}asupanbocil Ⓕ Ⓛ
+${symbol2} ${prefix}asupanhijab Ⓕ Ⓛ
+${symbol2} ${prefix}asupanukhty Ⓕ Ⓛ
+${symbol2} ${prefix}asupanrika Ⓕ Ⓛ
+${symbol2} ${prefix}asupanghea Ⓕ Ⓛ
+${symbol2} ${prefix}asupannotnot Ⓕ Ⓛ
+${symbol2} ${prefix}asupankayes Ⓕ Ⓛ
 
 *CECAN MENU*
 ${symbol2} ${prefix}randomcecan Ⓟ
-${symbol2} ${prefix}hijaber Ⓕ Ⓛ
-${symbol2} ${prefix}china Ⓟ
-${symbol2} ${prefix}indonesia Ⓕ Ⓛ
-${symbol2} ${prefix}japan Ⓕ Ⓛ
-${symbol2} ${prefix}korea Ⓕ Ⓛ
-${symbol2} ${prefix}thailand Ⓕ Ⓛ
-${symbol2} ${prefix}vietnam Ⓟ
+${symbol2} ${prefix}cecanhijab Ⓕ Ⓛ
+${symbol2} ${prefix}cecanchina Ⓟ
+${symbol2} ${prefix}cecanindo Ⓕ Ⓛ
+${symbol2} ${prefix}cecanjapan Ⓕ Ⓛ
+${symbol2} ${prefix}cecankorea Ⓕ Ⓛ
+${symbol2} ${prefix}cecanthail Ⓕ Ⓛ
+${symbol2} ${prefix}cecanviet Ⓟ
+${symbol2} ${prefix}cecanmalay Ⓕ Ⓛ
 
 *COGAN MENU*
 ${symbol2} ${prefix}randomcogan Ⓕ Ⓛ
@@ -975,8 +980,9 @@ let donate = `
 donate to me so that the bot can develop more.
 
 *e-wallet*
-Dana: 089512545999
-Gopay: 089512545999`
+Dana: 085790466509
+Gopay: 085790466509
+Pulsa: 085790466509`
 let buttons = [
                     {buttonId: `rules`, buttonText: {displayText: 'Rules'}, type: 1},
                     {buttonId: `menu`, buttonText: {displayText: 'Menu'}, type: 1},
@@ -1234,101 +1240,306 @@ danzz.sendMessage(m.chat, { image: link, }, { quoted: m })
 break
          
          // Asupan
-        case 'randomasupan': case 'asupan': {
-        	if (!isPremium) throw mess.premium
-            m.reply(mess.wait)
-			asupan = await getBuffer(`https://danzzapi.xyz/api/asupan/random?apikey=${global.apikeyprem}`)
-			danzz.sendMessage(m.chat, {video: asupan, mimetype: 'video/mp4', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'asupan':
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/asupan.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button1 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button1, { quoted: ftroli })
+break
 			
-		case 'randomasupan': case 'asupan': {
-            m.reply(mess.wait)
-			asupan = await getBuffer(`https://danzzapi.xyz/api/asupan/random?apikey=${global.apikeyprem}`)
-			danzz.sendMessage(m.chat, {video: asupan, mimetype: 'video/mp4', caption: `Done`}, {quoted:m})
-			}
-			break
-			
-		case 'santuy': {
-            m.reply(mess.wait)
-			asupan = await getBuffer(`https://danzzapi.xyz/api/asupan/santuy?apikey=${global.apikeyprem}`)
-			danzz.sendMessage(m.chat, {video: asupan, mimetype: 'video/mp4', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'asupansantuy': {
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/santuy.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button2 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button2, { quoted: ftroli })
+}
+break
 		
-		case 'bocil': {
-            m.reply(mess.wait)
-			asupan = await getBuffer(`https://danzzapi.xyz/api/asupan/bocil?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {video: asupan, mimetype: 'video/mp4', caption: `Done`}, {quoted:m})
-			}
-			break
-		
-		case 'hijaber': {
-            m.reply(mess.wait)
-			asupan = await getBuffer(`https://danzzapi.xyz/api/asupan/hijaber?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {video: asupan, mimetype: 'video/mp4', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'asupanbocil':{
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/bocil.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button3 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+naimi.sendMessage(m.chat, button3, { quoted: ftroli })
+}
+break
 			
-		case 'ukhty': {
-            m.reply(mess.wait)
-			asupan = await getBuffer(`https://danzzapi.xyz/api/asupan/ukhty?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {video: asupan, mimetype: 'video/mp4', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'asupanukhty':{
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/ukhty.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button4 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button4, { quoted: ftroli })
+}
+break
+
+case 'asupanghea':{
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/gheayubi.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button5 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button5, { quoted: ftroli })
+}
+break
+
+case 'asupannotnot':{
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/asupannotnot.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button6 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button6, { quoted: ftroli })
+}
+break
+
+case 'asupankayes':{
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/kayes.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button7 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button7, { quoted: ftroli })
+}
+break
+
+case 'asupanrika':
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://raw.githubusercontent.com/Assabiq31213/sabiq-bot/master/src/asupan/rikagusriani.json`)
+var hasil = pickRandom(asupan)
+buff = await getBuffer(hasil.url)
+var button8 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button8, { quoted: ftroli })
+break
+
+case 'asupanhijab':
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await fetchJson(`https://api.akuari.my.id/asupan/hijab`)
+buff = await getBuffer(asupan.respon)
+var button9 = {
+video: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button9, { quoted: ftroli })
+break
+
+case 'asupantiktok':
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Video" }, type: 1 }]
+var asupan = await getBuffer(`https://api.akuari.my.id/asupan/tiktok`)
+var button10 = {
+video: asupan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, button10, { quoted: ftroli })
+break
 		
 		// Cecan
-		case 'randomcecan': case 'cecan': {
-			if (!isPremium) throw mess.premium
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/random?apikey=${global.apikeyprem}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecan':
+case 'randomcecan':{
+m.reply(mess.wait)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var asupan = await fetchJson(`https://api.akuari.my.id/asupan/cecan`)
+buff = await getBuffer(asupan.respon)
+var buttons = {
+image: buff,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 			
-		case 'china': {
-			if (!isPremium) throw mess.premium
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/china?apikey=${global.apikeyprem}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecanchina': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/china`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 			
-		case 'indonesia': {
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/indonesia?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecanindo': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/indonesia`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 			
-		case 'japan': {
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/japan?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecanjapan': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/japan`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 			
-		case 'korea': {
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/korea?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecankorea': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/korea`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 		
-		case 'thailand': {
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/thailand?apikey=${global.apikey}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecanthai': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/thailand`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 		
-		case 'vietnam': {
-			if (!isPremium) throw mess.premium
-            m.reply(mess.wait)
-			cecan = await getBuffer(`https://danzzapi.xyz/api/cecan/vietnam?apikey=${global.apikeyprem}`)
-			danzz.sendMessage(m.chat, {image: cecan, mimetype: 'image/png', caption: `Done`}, {quoted:m})
-			}
-			break
+case 'cecanviet': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/vietnam`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
+
+case 'cecanmalay': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/malaysia`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
+
+case 'cecanhijab': {
+m.reply(mess.wait)
+cecan = await getBuffer(`https://saipulanuar.ga/api/cecan/hijaber`)
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Next Image" }, type: 1 }]
+var buttons = {
+image: cecan,
+caption: `Nih Kak >_<`,
+footer: global.footer,
+buttons: but,
+headerType: 4
+}
+danzz.sendMessage(m.chat, buttons, { quoted: ftroli })
+}
+break
 			
 		// Cogan
 		case 'randomcogan': case 'cogan': {
